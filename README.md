@@ -53,3 +53,20 @@ modern tech stacks might include tools for containerization, performance monitor
 
 
 For example, if we find a vulnerability that allows us to read files from the server, we'll need to know what operating system (OS) we're interacting with to properly construct file paths and determine what files we're interested in. We're unlikely to find /etc/password on a Windows host unless it's running the Windows Subsystem for Linux (WSL).
+
+
+BANNER GRABBING:
+We can manually identify services and software versions of exposed ports with banner grabbing. There are several command line tools we can use to do this. We'll focus on using curl and Netcat. Both tools support a variety of network protocols, including those we're most likely to encounter with web applications, such as HTTP and HTTPS.
+
+When using curl, we can use the -i or --include options to include response headers in the output. If we only want the headers, we can use -I or --head.
+
+curl -I http://enum-sanbox
+
+However, developers can modify or disable this header, so we can't always trust this value when we discover it without additional verification.
+
+
+
+
+We can use netcat in a similar way when dealing with non-HTTP protocols, such as SSH. We can use the -v option to enable verbose output. When used this way, netcat opens a connection to the destination, so we'll need to actually complete the request or close it using CTRL+C.
+
+netcat -v enum-sandbox 22
