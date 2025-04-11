@@ -35,3 +35,9 @@ nmap -p 80 --script http-methods enum-sandbox
 
 --open
 Only show hosts that have open ports, and only show the open ports for those. Here, “open ports” are any ports that have the possibility of being open, which includes open, open|filtered, and unfiltered.
+
+
+Host Discovery
+https://nmap.org/book/man-host-discovery.html
+
+
