@@ -2,17 +2,22 @@
 
 export URL="http://zda:80/FUZZ"
 
+
 File Discovery
 wfuzz -c -z file,/usr/share/seclists/Discovery/Web-Content/raft-medium-files.txt --hc 301,404,403 "$URL"
+
 
 Directory Discovery
 wfuzz -c -z file,/usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt --hc 403,404 "$URL" 
 
+
 Parameter Discovery - check for files on the webserver that can be used maliciously
 export URL="http://zda:80/index.php?FUZZ=data"
 
+
 fuzzing parameter values on a target web app
 fuzzing the "fpv" parameter with a common wordlist 
+
 
 wfuzz -c -z file,/usr/share/seclists/Usernames/cirt-default-usernames.txt --hc 404,301 http://zda:80/index.php?fpv=FUZZ
 
