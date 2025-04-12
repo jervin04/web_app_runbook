@@ -36,3 +36,18 @@ echo https://www.google.com | docker run --rm -i hakluke/hakrawler -subs
 cd $HOME/go/bin
 echo "https://URL-HERE.com/" > urls.txt
 cat urls.txt |./hakrawler
+
+
+# Automated HTTP Endpoint Discovery
+
+
+
+
+sudo apt install hakrawler
+which hakrawler
+
+
+Now that we have installed Hakrawler, let's run it against our sandbox VM. Instead of passing our target URL as a parameter, we need to pipe it to hakrawler. We'll also set -u to limit output to unique URLs.
+echo "http://enum-sandbox" | hakrawler -u
+
+By default, Hakrawler will print out the URLs it discovered. We could redirect the output to a file to save the results. We could also run Hakrawler with the -proxy option to proxy the requests through another tool.
