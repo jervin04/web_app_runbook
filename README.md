@@ -96,3 +96,10 @@ https://github.com/hakluke/hakrawler
 
 
 Next, we'll use DIRB, which uses a wordlist to discover files. Most Kali Linux images typically include DIRB. If our particular Kali VM doesn't include it, we can install it with apt.
+
+
+One of the first things we might notice is that DIRB took much longer to complete than Hakrawler. We also received different results. DIRB used the default wordlist at /usr/share/dirb/wordlists/common.txt and sent 4612 requests to the server. DIRB missed several of the URLs discovered by Hakrawler. However, it found http://enum-sandbox/server-status, which Hakrawler did not. Since DIRB (and other brute forcing tools) use wordlists, they might discover pages and resources that are present on the target server, but not linked directly from the main site, such as status pages or administration consoles.
+
+When using a brute forcing tool, selecting the right wordlist can directly impact our results. DIRB's default wordlist is often useful, but we may want to use different wordlists if we don't get many results. Kali Linux includes several wordlists at /usr/share/wordlists.
+
+
