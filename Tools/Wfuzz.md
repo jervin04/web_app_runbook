@@ -14,6 +14,7 @@ wfuzz -c -z file,/usr/share/seclists/Discovery/Web-Content/raft-medium-directori
 
 
 Parameter Discovery - check for files on the webserver that can be used maliciously
+
 export URL="http://zda:80/index.php?FUZZ=data"
 
 
@@ -49,3 +50,6 @@ RUn this command
 wfuzz -c -z file,/usr/share/seclists/Passwords/xato-net-10-million-passwords-100000.txt --hc 404  -d "Login=admin&Password=dawg" http://192.168.233.45/index.asp
 
 you can restrict file size of th erequest to remove erronious responses wfuzz -c -z file,/usr/share/seclists/Passwords/xato-net-10-million-passwords-100000.txt --hc 404  -d "Login=admin&Password=FUZZ" --hh 229 http://192.168.233.45:80/goform/formLogin
+
+https://www.phrack.me/tools/2022/07/06/Ffuf-cheatsheet.html
+
