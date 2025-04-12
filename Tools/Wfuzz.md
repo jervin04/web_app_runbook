@@ -9,6 +9,7 @@ wfuzz -c -z file,/usr/share/seclists/Discovery/Web-Content/raft-medium-files.txt
 
 
 Directory Discovery
+
 wfuzz -c -z file,/usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt --hc 403,404 "$URL" 
 
 
