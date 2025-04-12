@@ -11,3 +11,4 @@ NIST - https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-115
 Tech Stack - https://www.mongodb.com/resources/basics/technology-stack
 
 
+https://securing.dev/posts/hacking-the-oscp-web-apps/
