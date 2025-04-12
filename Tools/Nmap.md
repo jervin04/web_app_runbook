@@ -51,3 +51,11 @@ https://nmap.org/book/man-host-discovery.html
  nmap -sV enum-sandbox
 
 
+Nmap includes a scripting engine (NSE) that extends its functionality via Lua scripts. We can run scripts as part of our scan by setting the --script option, followed by the script name we want to run. We can optionally use wild cards (*) in the script name or specify categories. We won't review every available script here, as many of them go beyond the scope of web application assessments. However, there are many HTTP relevant scripts.
+
+Let's try running a scan of port 80 with the http-methods script. This script will identify what HTTP methods the server has enabled. We'll specify -p 80 to limit the scan to port 80 and --script http-methods.
+nmap -p 80 --script http-methods enum-sandbox
+
+
+
+
