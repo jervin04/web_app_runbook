@@ -1,0 +1,7 @@
+# NetCat
+
+The response headers include the Server header, which lists the server software version and operating system. We can use this information to refine our enumeration and attack payloads. However, developers can modify or disable this header, so we can't always trust this value when we discover it without additional verification.
+
+We can use netcat in a similar way when dealing with non-HTTP protocols, such as SSH. We can use the -v option to enable verbose output. When used this way, netcat opens a connection to the destination, so we'll need to actually complete the request or close it using C+c.
+Let's run netcat with -v, followed by the host and port values, separately. We'll check port 22 on the enumeration sandbox.
+netcat -v enum-sandbox 22
