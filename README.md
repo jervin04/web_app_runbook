@@ -82,3 +82,17 @@ We can think of these files as "Keep Out" signs for web crawlers. As attackers, 
 https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#xml
 https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt
 
+
+
+Automated HTTP Endpoint Discovery
+While manually browsing a website allows us to gain an understanding of the site's purpose and functionality, it can take a lot of time to fully explore a large site. We can use automated tools to provide broad coverage and discovery, while leveraging manual exploration to focus on depth.
+
+Automated discovery tools tend to either crawl sites or use wordlists to brute force (or "bust") the discovery of directories and files. There isn't a "right" tool to use in every situation. Context plays an important role.
+
+Crawlers tend to mimic the behavior of regular users. Crawlers start by accessing one page and then following any links from that page, traversing this way until they have accessed all linked pages. Mimicking users in this way is a relatively stealthy approach.
+
+In comparison, brute forcing tools tend to be "noisier" from a network perspective since they send multiple requests, many of which may be for invalid resources. However, they may discover pages or resources that aren't directly linked from the main site.
+https://github.com/hakluke/hakrawler
+
+
+Next, we'll use DIRB, which uses a wordlist to discover files. Most Kali Linux images typically include DIRB. If our particular Kali VM doesn't include it, we can install it with apt.
