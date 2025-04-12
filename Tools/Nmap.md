@@ -39,7 +39,15 @@ nmap -p 80 --script http-methods enum-sandbox
 Only show hosts that have open ports, and only show the open ports for those. Here, “open ports” are any ports that have the possibility of being open, which includes open, open|filtered, and unfiltered.
 
 
-# Host Discovery
+## Host Discovery
 https://nmap.org/book/man-host-discovery.html
+
+ 
+ If we know our target server is up, we can skip the host discovery phase with the -Pn option.
+ nmap -Pn enum-sandbox
+
+
+ Nmap can also perform service and version detection. There are several options we can configure for this, but the -sV flag for version detection is often sufficient during web application assessments.
+ nmap -sV enum-sandbox
 
 
