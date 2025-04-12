@@ -3,7 +3,7 @@ Web Application Runbook
 
 Web applications often represent the largest attack surface for an organization. Anyone with a browser and internet access can discover and interact with a public-facing web application. These users may range from valid users to malicious threat actors.
 
-SCOPE
+## SCOPE
 Our first step in web application reconnaissance is determining the scope of our assessment. We can usually define scope as the collection of hostnames, URL, IP addresses, and application functionality that we will be testing.
 
 Once we have our scope defined, we can begin gathering information about our target. We'll want to determine our target's digital footprint in terms of domain names, subdomains, and IP addresses.
@@ -12,7 +12,7 @@ RECON & PASSIVE INFO GATHERING
 helpful to use OSINT.
 
 
-ENUMERATION
+### ENUMERATION
 
 
 Discover Running Services
@@ -55,8 +55,10 @@ modern tech stacks might include tools for containerization, performance monitor
 For example, if we find a vulnerability that allows us to read files from the server, we'll need to know what operating system (OS) we're interacting with to properly construct file paths and determine what files we're interested in. We're unlikely to find /etc/password on a Windows host unless it's running the Windows Subsystem for Linux (WSL).
 
 
-BANNER GRABBING:
+## BANNER GRABBING:
 We can manually identify services and software versions of exposed ports with banner grabbing. There are several command line tools we can use to do this. We'll focus on using curl and Netcat. Both tools support a variety of network protocols, including those we're most likely to encounter with web applications, such as HTTP and HTTPS.
+https://curl.se/
+https://salsa.debian.org/debian/netcat
 
 When using curl, we can use the -i or --include options to include response headers in the output. If we only want the headers, we can use -I or --head.
 
@@ -68,5 +70,15 @@ However, developers can modify or disable this header, so we can't always trust 
 
 
 We can use netcat in a similar way when dealing with non-HTTP protocols, such as SSH. We can use the -v option to enable verbose output. When used this way, netcat opens a connection to the destination, so we'll need to actually complete the request or close it using CTRL+C.
-
 netcat -v enum-sandbox 22
+
+
+## Manual HTTP Endpoint Discovery
+We're most interested in forms or other ways we can submit information so that the application processes our data. Most web application vulnerabilities occur from mishandling or misinterpreting the data sent
+
+Some web applications include files that can assist our discovery efforts. Web developers use robots.txt to instruct web crawlers on what portions of the website they can crawl. XML sitemaps are an alternative to robots.txt and provide additional information about the site, such as the last time a page was modified.
+
+We can think of these files as "Keep Out" signs for web crawlers. As attackers, we should investigate any URLs included in these files to identify potentially sensitive functionality.
+https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#xml
+https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt
+
