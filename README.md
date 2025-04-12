@@ -103,3 +103,15 @@ One of the first things we might notice is that DIRB took much longer to complet
 When using a brute forcing tool, selecting the right wordlist can directly impact our results. DIRB's default wordlist is often useful, but we may want to use different wordlists if we don't get many results. Kali Linux includes several wordlists at /usr/share/wordlists.
 
 
+## Information Disclosure
+
+
+As we enumerate a web application, we might encounter error messages as a result of submitting various data. Depending on what information the application returns in error messages, we might be able to learn or infer useful information.
+
+For example, we might be able to learn username or password requirements. This information can be crucial when attempting to brute force passwords as it allows us to tailor our attacks to only passwords that match the site's requirements. In some cases, an application might disclose if a username is valid as part of the login or password recovery process.
+
+Error messages can also leak information about the application's tech stack if they contain unique identifiers. For example, Oracle database software typically include ORA in error codes.
+
+In some cases, we might need to fuzz the application to generate error messages. Fuzzing typically uses automated tools to generate a large volume of semi-random data and send it to the target application or API. When fuzzing, our goal is to observe how the application responds to the unexpected input. We are trying to identify edge cases where the application leaks information or behaves in a way that its developers didn't intend in order to subvert the application's normal logic.
+
+There are several fuzzing tools included in Kali Linux by default, such as Wfuzz and ffuf. These two tools are similar. We specify a URL, HTTP Method type, request body (if we're sending a POST, PUT, or PATCH), and a wordlist. We can specify a placeholder (typically FUZZ) where we want the tool to inject the contents of the wordlist. They each include additional features, such as the ability to filter output.
