@@ -180,7 +180,11 @@ Now that we've explored how to enumerate web applications, we'll briefly review 
 
 Each type of web application vulnerability has a different target that usually falls into two categories: client-side and server-side.
 
-Client-side attacks target the users of the web application or their browser. This usually requires some form of user interaction, which could range from clicking a specific link to simply opening a vulnerable page. These types of attacks typically result in session hijacking or theft of sensitive data.
+Client-side attacks target the users of the web application or their browser. This usually requires some form of user interaction, which could range from clicking a specific link to simply opening a vulnerable page. These types of attacks typically result in session hijacking or theft of sensitive data. 
+
+
+https://csrc.nist.gov/glossary/term/session_hijack_attack
+
 
 Server-side attacks target the web application or its underlying server. These attacks tend to result in theft of sensitive data or remote code execution (RCE) on the server.
 
@@ -189,6 +193,8 @@ Server-side attacks target the web application or its underlying server. These a
 When we run authentication bypass attacks, we're trying to gain new permissions within the target application. This could mean bypassing the authentication functionality entirely to log in without valid credentials through SQL injection, brute forcing credentials, or hijacking another user's session using cross-site scripting.
 
 Depending on the configuration of the application, we might be able to abuse the application's Cross-Origin Resource Sharing (CORS) settings to perform malicious actions on behalf of another user.
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
+
 
 Once we have an authenticated session, we could also try to elevate our permissions within the application to a different role, such as going from a regular user account to an administrative user account. We might achieve this by manipulating session cookies, using XSS or weak CORS to target an administrative user, or using SQL injection to manipulate our user account.
 
@@ -197,7 +203,7 @@ Once we have an authenticated session, we could also try to elevate our permissi
 # Data Exfiltration
 One common goal during a web application assessment is to determine if attackers can access restricted or sensitive data they shouldn't have access to.
 
-As we gain access to a web application or a user's account, we need to determine if we can access sensitive data. This might include data about users, such as payment information (credit cards, gift cards, bank accounts, etc.) or personally identifiable information (PII). It could also include data related to the organization we are assessing, such as proprietary information.
+As we gain access to a web application or a user's account, we need to determine if we can access sensitive data. This might include data about users, such as payment information (credit cards, gift cards, bank accounts, etc.) or personally identifiable information (PII). It could also include data related to the organization we are assessing, such as proprietary information. https://www.ibm.com/think/topics/pii
 
 
 # Remote Code Execution
