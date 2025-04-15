@@ -129,7 +129,7 @@ We can use Retire.js as a command line tool, as part of the build process, as a 
 
 The command line version requires NodeJS and npm. Alternatively, these dependencies could be installed within a container. Both of these approaches go beyond the scope of this Module.
 
-
+https://retirejs.github.io/retire.js/
 
 # Wordlists
 
