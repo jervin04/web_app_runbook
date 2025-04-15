@@ -182,7 +182,7 @@ Each type of web application vulnerability has a different target that usually f
 
 Client-side attacks target the users of the web application or their browser. This usually requires some form of user interaction, which could range from clicking a specific link to simply opening a vulnerable page. These types of attacks typically result in session hijacking or theft of sensitive data. 
 
-
+https://owasp.org/www-community/attacks/Command_Injection
 https://csrc.nist.gov/glossary/term/session_hijack_attack
 
 
