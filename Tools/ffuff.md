@@ -13,3 +13,6 @@ When we fuzz applications, we need to be aware of how much noise we're making fr
 
 
 ffuf -w users.txt -u http://enum-sandbox/auth/login -X POST -d 'username=FUZZ&password=bar' -H 'Content-Type: application/x-www-form-urlencoded'
+
+
+Use a fuzzing tool to brute force the password for a valid username using a custom wordlist created with CeWL
