@@ -115,3 +115,48 @@ Error messages can also leak information about the application's tech stack if t
 In some cases, we might need to fuzz the application to generate error messages. Fuzzing typically uses automated tools to generate a large volume of semi-random data and send it to the target application or API. When fuzzing, our goal is to observe how the application responds to the unexpected input. We are trying to identify edge cases where the application leaks information or behaves in a way that its developers didn't intend in order to subvert the application's normal logic.
 
 There are several fuzzing tools included in Kali Linux by default, such as Wfuzz and ffuf. These two tools are similar. We specify a URL, HTTP Method type, request body (if we're sending a POST, PUT, or PATCH), and a wordlist. We can specify a placeholder (typically FUZZ) where we want the tool to inject the contents of the wordlist. They each include additional features, such as the ability to filter output.
+
+
+
+#Components with Vulnerabilities
+As we explore web applications, we will likely encounter JavaScript frameworks, such as React, Angular, and jQuery. Many developers use these frameworks to simplify development.
+
+However, like any other code, these frameworks can contain vulnerabilities. These vulnerabilities tend to be useful for client-side attacks, such as cross-site scripting (XSS).
+
+We can manually check the versions of the JavaScript files and frameworks we encounter. However, this can be time consuming. We can leverage automated tools, such as Retire.js, to do this more effectively.
+
+We can use Retire.js as a command line tool, as part of the build process, as a browser plugin, or as a Burp Suite extension (which requires Burp Suite Professional).
+
+The command line version requires NodeJS and npm. Alternatively, these dependencies could be installed within a container. Both of these approaches go beyond the scope of this Module.
+
+
+
+# Wordlists
+
+While Kali Linux includes several wordlists at /usr/share/wordlists, we may want to expand our collection to cover different web applications, frameworks, and vulnerabilities.
+
+SecLists contains multiple wordlists that cover discovery, fuzzing, common passwords, and web shells. We can install SecLists by cloning the repo to a directory of our choice or using Kali's package manager.
+
+
+The installation via our package manager may take a few minutes as the collection is over a gigabyte in size. Once the installation is complete, we can find the different wordlists in /usr/share/seclists, organized by type of list.
+
+
+Each directory contains sub-directories and files. We won't explore everything, but it's worth spending some time reviewing the contents to become familiar with them.
+
+Payloads All The Things is another useful collection of wordlists focused on exploitation. As with SecLists, we can clone the repo from GitHub or install it with Kali's package manager.
+
+## Custom Wordlists
+Creating Custom Wordlists
+In addition to the common wordlists we've reviewed in this Module, we may find it useful to create a custom wordlist based on the application we are assessing.
+
+CeWL is a custom wordlist generator that is included in Kali Linux. It crawls a URL and creates a list of words from the pages it discovers. CeWL has many optional settings to control how it crawls, what words it tracks, and how it outputs the results.
+
+Let's try using it against our sandbox application. We'll run cewl, --write the results to output.txt, force output to --lowercase, and set -m 4 to set the minimum word length to four characters, and then provide our target URL.
+
+After CeWL finishes, we'll use tail to check some of the results in output.txt.
+
+While this is just an example, let's suppose we generated a list of unique words specific to the site we were assessing. We could use those results in brute force attacks that would be more focused than a generic wordlist.
+
+In addition to creating wordlists from web applications, there are other situations in which we may want to create wordlists. For example, if we know our target's operating system, we could build a wordlist of binaries that we might want to leverage in a command injection attack.
+
+For example, we could use ls to get the contents of /usr/bin, pipe the results to grep, use -v / to exclude directories, and redirect the results to a file.
