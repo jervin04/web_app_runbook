@@ -162,6 +162,9 @@ In addition to creating wordlists from web applications, there are other situati
 For example, we could use ls to get the contents of /usr/bin, pipe the results to grep, use -v / to exclude directories, and redirect the results to a file.
 
 There is no limit to the wordlists we can create with creative use of Linux command line tools, like sed, cut, and grep.
+https://www.gnu.org/software/sed/manual/sed.html
+https://pubs.opengroup.org/onlinepubs/9699919799/utilities/cut.html
+
 
 We can also use LLMs to generate wordlists. Refer to the Using LLMS to Help Create Custom Wordlists Learning Module for more details.
 
