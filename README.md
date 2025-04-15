@@ -160,3 +160,9 @@ While this is just an example, let's suppose we generated a list of unique words
 In addition to creating wordlists from web applications, there are other situations in which we may want to create wordlists. For example, if we know our target's operating system, we could build a wordlist of binaries that we might want to leverage in a command injection attack.
 
 For example, we could use ls to get the contents of /usr/bin, pipe the results to grep, use -v / to exclude directories, and redirect the results to a file.
+
+There is no limit to the wordlists we can create with creative use of Linux command line tools, like sed, cut, and grep.
+
+We can also use LLMs to generate wordlists. Refer to the Using LLMS to Help Create Custom Wordlists Learning Module for more details.
+
+https://portal.offsec.com/library/learning-modules/using-llms-to-help-create-custom-wordlists-177893/
