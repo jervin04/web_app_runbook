@@ -38,3 +38,6 @@ ls /usr/bin | grep -v "/" > binaries.txt
 tail binaries.txt
 
 
+Use a fuzzing tool to brute force the password for a valid username using a custom wordlist created with CeWL
+
+
