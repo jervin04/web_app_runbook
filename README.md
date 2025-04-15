@@ -169,3 +169,50 @@ https://pubs.opengroup.org/onlinepubs/9699919799/utilities/cut.html
 We can also use LLMs to generate wordlists. Refer to the Using LLMS to Help Create Custom Wordlists Learning Module for more details.
 
 https://portal.offsec.com/library/learning-modules/using-llms-to-help-create-custom-wordlists-177893/
+
+
+# Types of Attacks
+This Learning Unit covers the following Learning Objectives:
+
+Review the Basic Concepts of Web Application Attacks
+Understand the Basic Concepts of Web Shells
+Now that we've explored how to enumerate web applications, we'll briefly review different types of web application attacks at a high level. Subsequent WEB-200 modules cover these attacks in more detail, but it is useful for us to have a basic understanding.
+
+Each type of web application vulnerability has a different target that usually falls into two categories: client-side and server-side.
+
+Client-side attacks target the users of the web application or their browser. This usually requires some form of user interaction, which could range from clicking a specific link to simply opening a vulnerable page. These types of attacks typically result in session hijacking or theft of sensitive data.
+
+Server-side attacks target the web application or its underlying server. These attacks tend to result in theft of sensitive data or remote code execution (RCE) on the server.
+
+
+# Authentication Bypass
+When we run authentication bypass attacks, we're trying to gain new permissions within the target application. This could mean bypassing the authentication functionality entirely to log in without valid credentials through SQL injection, brute forcing credentials, or hijacking another user's session using cross-site scripting.
+
+Depending on the configuration of the application, we might be able to abuse the application's Cross-Origin Resource Sharing (CORS) settings to perform malicious actions on behalf of another user.
+
+Once we have an authenticated session, we could also try to elevate our permissions within the application to a different role, such as going from a regular user account to an administrative user account. We might achieve this by manipulating session cookies, using XSS or weak CORS to target an administrative user, or using SQL injection to manipulate our user account.
+
+
+
+# Data Exfiltration
+One common goal during a web application assessment is to determine if attackers can access restricted or sensitive data they shouldn't have access to.
+
+As we gain access to a web application or a user's account, we need to determine if we can access sensitive data. This might include data about users, such as payment information (credit cards, gift cards, bank accounts, etc.) or personally identifiable information (PII). It could also include data related to the organization we are assessing, such as proprietary information.
+
+
+# Remote Code Execution
+The most severe vulnerabilities result in remote code execution (RCE), which allows us to execute arbitrary code on the target system or application. RCE vulnerabilities are particularly dangerous because they can allow attackers to take complete control of the target system.
+
+Attackers could use RCE vulnerabilities to exfiltrate data, install malware, modify or delete files, or even use the compromised system to launch further attacks.
+
+During a web application assessment, we'll typically use RCE to get a shell on the server. This could be a bind shell, which waits for a connection, a reverse shell, which sends a shell back to our machine, or a web shell, which allows us to run OS commands or arbitrary code from our browser. We'll explore web shells more in the next section.
+
+When we create a bind or reverse shell, we use programming language functionality or a binary on the target machine to interact with a socket. With a bind shell, we create an open socket on the target machine that waits for a connection. Once the bind shell is running, we need to connect to it in order to interact with it. To use a phone call metaphor, we make the call to connect to the bind shell.
+
+However, even if we are able to start a bind shell on a server, the vulnerable server's network architecture may prevent us from connecting to the shell. An application exposed through a reverse proxy or running on server using Network Address Translation (NAT) might prevent us from accessing non-HTTP ports on the server.
+
+A reverse shell sends a shell back to our system where we need a listener to handle the connection. To continue the phone call metaphor, the exploited machine makes the phone call to us and our listener answers the call.
+
+One common tool we'll use when interacting with shells is Netcat. There are actually two versions of Netcat: the "traditional" version and the openBSD version. Their high-level functionality is mostly the same from our perspective as attackers, with one noticeable difference. The traditional version has an option (-e) to execute a program after a connection is made. This feature is dangerous, as it can execute a shell environment, such as bash, giving the person connecting to the socket access to that environment.
+
+We can use Netcat to create a bind shell, connect to a bind shell, or create a listener to handle a reverse shell based on the options we set when running it.
