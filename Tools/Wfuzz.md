@@ -5,19 +5,19 @@ export URL="http://zda:80/FUZZ"
 
 File Discovery
 
-```
+```console
 wfuzz -c -z file,/usr/share/seclists/Discovery/Web-Content/raft-medium-files.txt --hc 301,404,403 "$URL"
 ```
 
 Directory Discovery
 
-```
+```bash
 wfuzz -c -z file,/usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt --hc 403,404 "$URL" 
 ```
 
 Parameter Discovery - check for files on the webserver that can be used maliciously
 
-```
+```console
 export URL="http://zda:80/index.php?FUZZ=data"
 ```
 
