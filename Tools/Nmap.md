@@ -27,7 +27,6 @@ nmap -p80 --script=http-methods --script-args http-methods.url-path='/wp-include
 
 ## Discovering running servies
 
-TEST (toook forever (dont use?)): nmap -v -A -O -sT -sU -p- -sV -T4 enum-sandbox
 
 running nmap set with -Pn to skip host discovery since we know its already up and running in the sandbox environment. 
 
