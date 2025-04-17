@@ -222,3 +222,17 @@ A reverse shell sends a shell back to our system where we need a listener to han
 One common tool we'll use when interacting with shells is Netcat. There are actually two versions of Netcat: the "traditional" version and the openBSD version. Their high-level functionality is mostly the same from our perspective as attackers, with one noticeable difference. The traditional version has an option (-e) to execute a program after a connection is made. This feature is dangerous, as it can execute a shell environment, such as bash, giving the person connecting to the socket access to that environment.
 
 We can use Netcat to create a bind shell, connect to a bind shell, or create a listener to handle a reverse shell based on the options we set when running it.
+
+
+
+# Web Shells
+
+
+Similar to a traditional bind shell, a web shell provides an limited, shell-like interface through a script installed on a web server. Kali Linux includes several different web shells in /usr/share/webshells. These web shells are organized by programming language.
+To use these web shells during an assessment, we would need to pick the shell that matched the tech stack of the application we are targeting. We also need a way to upload or write a file to the server's web root directory.
+
+If we upload or create the wrong type of web shell, the target machine will not be able to execute the shell.
+
+Some of these shells may need modifications to work, such as updating the IP address for reverse shells.
+
+
