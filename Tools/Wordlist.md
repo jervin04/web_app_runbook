@@ -1,6 +1,6 @@
 # Wordlist
 
-seclists
+## seclists
 
 https://gitlab.com/kalilinux/packages/seclists
 
@@ -18,7 +18,10 @@ ls -lh /usr/share/payloadsallthethings
 
 
 
-CeWL is a custom wordlist generator that is included in Kali Linux. It crawls a URL and creates a list of words from the pages it discovers. CeWL has many optional settings to control how it crawls, what words it tracks, and how it outputs the results.
+## CeWL 
+
+is a custom wordlist generator that is included in Kali Linux. It crawls a URL and creates a list of words from the pages it discovers. CeWL has many optional settings to control how it crawls, what words it tracks, and how it outputs the results.
+
 https://github.com/digininja/CeWL
 
 
