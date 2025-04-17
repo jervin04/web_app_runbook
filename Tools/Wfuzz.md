@@ -25,8 +25,9 @@ fuzzing parameter values on a target web app
 fuzzing the "fpv" parameter with a common wordlist 
 
 
+```
 wfuzz -c -z file,/usr/share/seclists/Usernames/cirt-default-usernames.txt --hc 404,301 http://zda:80/index.php?fpv=FUZZ
-
+```
 
 Fuzz the password in Burp
 
