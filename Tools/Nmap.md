@@ -1,7 +1,10 @@
 # Nmap
 
 Nmap NSE scripts
+
+
 cd /usr/share/nmap/scripts
+
 
 To get an easy list of the installed scripts try locate nse | grep script. 
 
