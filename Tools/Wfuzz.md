@@ -11,13 +11,15 @@ wfuzz -c -z file,/usr/share/seclists/Discovery/Web-Content/raft-medium-files.txt
 
 Directory Discovery
 
+```
 wfuzz -c -z file,/usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt --hc 403,404 "$URL" 
-
+```
 
 Parameter Discovery - check for files on the webserver that can be used maliciously
 
+```
 export URL="http://zda:80/index.php?FUZZ=data"
-
+```
 
 fuzzing parameter values on a target web app
 fuzzing the "fpv" parameter with a common wordlist 
