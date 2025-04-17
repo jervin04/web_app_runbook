@@ -6,10 +6,16 @@ ls -lsaht
 
 
 use the mouspad tool to open an edit a file... because everyone hates vim
+
+
 sudo mousepad /etc/hosts
+
+
 cat /etc/hosts
 
 
 
 When using a brute forcing tool, selecting the right wordlist can directly impact our results. DIRB's default wordlist is often useful, but we may want to use different wordlists if we don't get many results. Kali Linux includes several wordlists at /usr/share/wordlists.
+
+
 ls -alh /usr/share/wordlists
