@@ -14,3 +14,6 @@ Tech Stack - https://www.mongodb.com/resources/basics/technology-stack
 https://securing.dev/posts/hacking-the-oscp-web-apps/
 
 ffuf cheatsheet - https://www.phrack.me/tools/2022/07/06/Ffuf-cheatsheet.html
+
+
+chmod calculator - https://nettools.club/chmod_calc
