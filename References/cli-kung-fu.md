@@ -99,3 +99,100 @@ Perhaps we want to find references to root in the /etc directory overall and sup
 
 
 grep -R "root" /etc/ 2>/dev/null
+
+
+
+# Reverse Command Search
+
+
+Instead of using the arrow keys to navigate through your command history, you can actually perform a search. I find this is something that not many people know about, but in most terminals pressing CTRL + R in the terminal will bring up a search prompt. 
+
+
+# history
+
+
+We are going to run the history command to see what it knows about commands we have run. Do this as follows:
+
+
+history
+
+
+Now we are going to print out the .bash_history file! Here we go:
+
+
+cat .bash_history
+
+
+# top
+
+
+We are going to run the top command to see what this system is up to. It will 'lock us in'.
+
+
+Hit the control key and 'Z' at the same time to suspend it. Here we go:
+
+Ctrl-Z
+
+
+Now the process is suspended, we want to 'bring it back'. We do this with the following command:
+
+fg
+
+
+top is back! OK let us make this more complex and get two of these running. Suspend top again, and then we will launch another command.
+
+Ctrl-z
+less /etc/passwd
+Ctrl-z
+
+
+OK now we have two processes suspended. We can use the jobs command to list them. Simply execute it:
+
+
+jobs
+
+
+Want to switch to one of them? Use the number next to it, for example:
+
+fg 2
+
+
+You should have got your second process back. Now you can switch between things as you need!
+
+
+# which
+
+
+The which command is useful to find out 'which' binary you will run and where. This is useful in resolving version or path confusion issues!
+
+
+If you try to run which on a command which doesn't exist in your PATH, then you will get no results. This is a good indication that you need to either:
+
+
+Move the program you installed into a folder in your PATH or Add the folder that the program was installed into to your PATH.
+
+
+
+Find out where the following tools are located:
+
+ls
+
+
+adduser
+
+
+cat
+
+
+nano
+
+
+grep
+
+
+less
+
+
+Notice how some are under /bin, /sbin, or /usr/bin? These are all in the path and the which command shows you which matches. Note sometimes there will be commands with the same name in the path, and Linux will run the first one it finds. This is when which is useful.
+
+
