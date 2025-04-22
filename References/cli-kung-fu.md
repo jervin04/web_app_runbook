@@ -196,3 +196,21 @@ less
 Notice how some are under /bin, /sbin, or /usr/bin? These are all in the path and the which command shows you which matches. Note sometimes there will be commands with the same name in the path, and Linux will run the first one it finds. This is when which is useful.
 
 
+
+# apropos
+
+
+The apropos Command
+
+
+The apropos command is a quick way to search manuals on your system for matches, for example to find a command that performs a certain function where you do not know the exact name of the command.
+
+
+You already know about the 'man' command. This is the command used to pull up a manual page on tools installed on your Linux system. Similar to 'man' is 'apropos'. The 'apropos' tool is used to search man pages for keywords, usually to find the 'appropriate' tool to use in a particular situation.
+
+For example, 'which tool could I use to display the manual for a tool?":
+
+
+The 'apropos' command is used to find the 'appropriate' tool for a particular job. It's particularly useful when you don't have access to the internet for some reason, such as if you are working on a long flight.
+
+
