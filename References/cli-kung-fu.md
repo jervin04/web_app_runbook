@@ -62,3 +62,40 @@ find all files in the etc directory, and grep for the string password, and surpr
 
 
 find /etc -iname "*.ini" -exec grep -i "password" {} /dev/null \; 2>/dev/null
+
+
+
+# grep
+
+
+Within the grepfile1.txt there is a reference to someone's home. Let's search for 'home' and see if we can find it.
+
+
+grep "home" grepfile1.txt
+
+
+grep "pass" grepfile2.txt
+
+
+Neat, that found quite a few matches - like password123. But note this is all lowercase because we are defaulting case sensitive. Let us try it without case sensitivity.
+
+
+grep -i "pass" grepfile2.txt
+
+
+That found a few more hits, the -i switch found matches like Password. Finally, let us try searching across a couple of files together. In fact, let's search every file in this directory!
+
+
+grep -i "whole" *
+
+
+The /etc/passwd file contains references to users on the system, and we know the root user always exists in it.
+
+
+grep root /etc/passwd
+
+
+Perhaps we want to find references to root in the /etc directory overall and suppress errors
+
+
+grep -R "root" /etc/ 2>/dev/null
