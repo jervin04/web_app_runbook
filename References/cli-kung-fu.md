@@ -214,3 +214,16 @@ For example, 'which tool could I use to display the manual for a tool?":
 The 'apropos' command is used to find the 'appropriate' tool for a particular job. It's particularly useful when you don't have access to the internet for some reason, such as if you are working on a long flight.
 
 
+
+# file
+
+
+The 'file' command can tell us the filetype of a file. You may have noticed that Linux isn't keen on using file extensions, instead what matters is the contents of the file. Specifically, every filetype has its own file header which is something like a signature identifying it. The file header is universal, even files created on Windows use them, it's just that Linux uses them to tell the type of file, while Windows relies more on file extensions (which, let's face it, are basically just part of the file name).
+
+The way the file command works is by reading the file header of the file and comparing it against a database of file headers to tell you what type of file something is. Take a look:
+
+Linux terminal showing output of file azipfile and file /bin/ls. For each it shows the type of file, e.g. Zip archive data or ELF 64-bit respectively. Numerous verbose properties are listed too.
+
+Here we ran 'file' on two files. The first file is a zip file, which we removed the file extension from. The 'file' command accurately tells us that it is a zip file.
+
+The second time we ran it on the 'ls' command, which is a binary executable file, and 'file' tells us that it is an 'ELF' file (which is the Linux version of an EXE on Windows: an executable file).
