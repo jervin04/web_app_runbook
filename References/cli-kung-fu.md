@@ -2,14 +2,21 @@
 
 list items in list format include size of all items, included hidden all files in human readable format and sort by newest time first
 
+# ls
+
 
 ls -lsaht
+
+# mousepad
 
 
 use the mouspad tool to open an edit a file... because everyone hates vim
 
 
 sudo mousepad /etc/hosts
+
+
+# cat
 
 
 cat /etc/hosts
@@ -23,6 +30,9 @@ ls -alh /usr/share/wordlists
 
 
 asking Linux to separate errors and 'good' results.
+
+
+# find
 
 
 find / -name "passwd" 1>results.txt 2>errors.txt
