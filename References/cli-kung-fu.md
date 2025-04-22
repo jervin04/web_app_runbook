@@ -2,6 +2,7 @@
 
 list items in list format include size of all items, included hidden all files in human readable format and sort by newest time first
 
+
 ls -lsaht
 
 
@@ -19,3 +20,9 @@ When using a brute forcing tool, selecting the right wordlist can directly impac
 
 
 ls -alh /usr/share/wordlists
+
+
+find all files with permissions high suid permissions, and send get rid of all the errors from the scan, since this scans entire file system
+
+
+find / -perm /4000 2>/dev/null
