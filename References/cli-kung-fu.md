@@ -64,6 +64,11 @@ find all files in the etc directory, and grep for the string password, and surpr
 find /etc -iname "*.ini" -exec grep -i "password" {} /dev/null \; 2>/dev/null
 
 
+Now find files that contain the name pass on the system, but supress the output of stderr to /dev/null
+
+
+find / -iname \*pass\* 2>/dev/null
+
 
 # grep
 
