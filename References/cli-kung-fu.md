@@ -227,3 +227,14 @@ Linux terminal showing output of file azipfile and file /bin/ls. For each it sho
 Here we ran 'file' on two files. The first file is a zip file, which we removed the file extension from. The 'file' command accurately tells us that it is a zip file.
 
 The second time we ran it on the 'ls' command, which is a binary executable file, and 'file' tells us that it is an 'ELF' file (which is the Linux version of an EXE on Windows: an executable file).
+
+
+OK, so that file is a configuration file using ASCII text. Let us try instead a binary. How about the ls command? We will use which to find it, and file to examine it.
+
+
+which ls
+
+
+file /usr/bin/ls
+
+
