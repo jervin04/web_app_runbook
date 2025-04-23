@@ -238,3 +238,91 @@ which ls
 file /usr/bin/ls
 
 
+# wget
+
+
+The 'wget' command stands for 'web get'. It allows us to download files from the internet from the command line. Take a look:
+
+wget 127.0.0.1
+
+
+# Command Line Chaining
+
+
+cd /usr
+ls; sleep 3; ps aux
+
+
+We can also use pipes and redirects if we want to.
+
+cat /etc/passwd | grep root; sleep 2; ps aux | grep root
+
+
+the ability to pass information between commands and build up your desired capabilities is the real point.
+
+
+Firstly we will use the ps aux command. We then layer this together with grep to filter for a specific set of processes that match the name smbd. This is done as follows:
+
+
+ps aux | grep smbd
+
+
+This produces a list of the corresponding processes, but unfortunately also matches the grep itself! We want to remove this from the list as a false match, which we can do with another grep and the negation option!
+
+
+ps aux | grep smbd | grep -v grep
+
+
+Now we want to filter for the PID field, which is the second field (defined by tabs between data by default). We can use awk to do this. Please note that awk has a remarkable set of capabilities - it is a whole language designed to filter and manipulate data. Adding awk we now have:
+
+
+ps aux | grep smbd | grep -v grep | awk '{ print $2 }'
+
+
+This gives us a list of PIDs that we can now process, using the xargs command. Xargs enables us to take items delimited by spaces, other characters or returns. The default handles new lines which is exactly the format of our data! It will pass the command as an argument to any command that we specify.
+
+
+ps aux | grep smbd | grep -v grep | awk '{ print $2 }' | kill -9
+
+
+The kill -9 which hard terminates a process will be executed for each of the lines, terminating the processes one by one. Running one of our earlier ps aux | grep smbd commands against will demonstrate these have been terminated.
+
+
+The power of this system is that each command you learn, such as awk, python, tee, cat, grep (and many more), can be tied together to form new combinations. You can use each command as a part of the jigsaw puzzle you assemble to solve your specific issue. It takes practice, but this is extremely powerful and will supercharge the velocity with which you complete tasks in the future.
+
+
+
+# ps
+
+
+A process is just a running program of some kind. You previously saw one method of viewing running processes by using 'top', however top is not a complete list of all processes running on the system, just the ones that are using the most resources. To see a full list, we can use the 'ps' command:
+
+
+Launch the top command, then background it as we learned before. Remember this requires you to use Ctrl-Z on the keyboard at the same time.
+
+top and now Ctrl-Z
+
+bg (execute this as a command).
+
+
+Now that top is running in the background we can run ps to list processes. We will list all the ones on the system we can see:
+
+
+ps aux
+
+
+See the top command? It will have a PID next to it. Read the text in this module again if you aren't following. Now we want to terminate this process.
+
+kill -9 <pid> (where pid is the number listed)
+
+The equivalent in Linux syntax would be:
+
+ps -ef -f
+
+
+Another thing you might find useful is to get a full list of processes along with subprocesses and more detail on the parameters the processes were launched with. In BSD syntax:
+
+
+$ ps auxf
+
+
