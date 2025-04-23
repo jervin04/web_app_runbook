@@ -326,3 +326,7 @@ Another thing you might find useful is to get a full list of processes along wit
 $ ps auxf
 
 
+We will run a process listing with ps aux and then pass it to grep to filter. The user we are interested in is apache so we will filter for this.
+
+
+ps aux | grep apache > test.txt
