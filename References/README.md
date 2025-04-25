@@ -17,3 +17,6 @@ ffuf cheatsheet - https://www.phrack.me/tools/2022/07/06/Ffuf-cheatsheet.html
 
 
 chmod calculator - https://nettools.club/chmod_calc
+
+
+temp-email.org
