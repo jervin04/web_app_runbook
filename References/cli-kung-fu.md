@@ -335,3 +335,28 @@ We will run a process listing with ps aux and then pass it to grep to filter. Th
 
 
 ps aux | grep apache > test.txt
+
+
+
+# ssh
+
+Most Linux distributions come with SSH enabled by default. All you need is the username and password to your Linux computer (and of course you'll need to set up port forwarding on your router if you are behind NAT.), along with the IP address. To log in to an SSH server, you'll want to use the 'ssh' command if you are on Linux or Mac OS. If you are on Windows, you can download an SSH client such as PuTTY.
+
+
+
+ssh username@ipaddress
+
+
+Once you connect, you'll be asked for the password to that account. Submitting the password will get you to a prompt, similar to if you were sitting at that computer
+
+
+Some SSH servers are configured to use a keyfile (a keyfile is just a text file that contains an encryption key) instead of or as well as a password to log in. If a keyfile is required, you have to specify the location of the file when you connect with:
+
+
+$ ssh -i /path/to/keyfile username@ipaddress
+
+
+generate new ssh key for authentication instead of username and password
+
+
+ssh-keygen -t rsa
